@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nến Đom Đóm — Thắp một đốm sáng nhỏ cho căn phòng của bạn</title>
+<meta name="description" content="Nến Đom Đóm — nến thơm thủ công đổ từng mẻ nhỏ: gỗ trầm, vani, cam quế, oải hương và workshop đổ nến cuối tuần.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --nen:#FFF7E8; --nen-phu:#FBEED3; --chu:#2A1E17; --chu-phu:#6B5344;
+    --nhan:#C96F2E; --anh-nen:#E8A33D; --vien:#EAD9BE;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--nen);color:var(--chu);font-family:"Be Vietnam Pro",system-ui,sans-serif;font-weight:300;font-size:17px;line-height:1.7}
+  h1,h2,h3{font-family:"Playfair Display",Georgia,serif;font-weight:600;line-height:1.3;margin:0}
+  a{color:var(--nhan)}
+  img{display:block;width:100%;object-fit:cover}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 48px}
+  /* Header cố định */
+  header.nav{position:sticky;top:0;z-index:10;background:rgba(255,247,232,.9);border-bottom:1px solid var(--vien)}
+  header.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+  .logo{font-family:"Playfair Display",Georgia,serif;font-size:24px;letter-spacing:.5px;text-decoration:none;color:var(--chu)}
+  nav.links{display:flex;gap:22px;flex-wrap:wrap}
+  nav.links a{text-decoration:none;color:var(--chu-phu);font-size:15px}
+  nav.links a:hover{color:var(--nhan)}
+  /* Nút */
+  .btn{display:inline-block;font-family:"Be Vietnam Pro",sans-serif;font-size:16px;font-weight:600;padding:14px 28px;border-radius:999px;text-decoration:none;border:1.5px solid var(--nhan)}
+  .btn-chinh{background:var(--nhan);color:var(--nen)}
+  .btn-phu{background:transparent;color:var(--nhan)}
+  .btn-nho{padding:10px 20px;font-size:15px}
+  /* Khối */
+  section.block{padding:96px 0}
+  .eyebrow{font-size:13px;text-transform:uppercase;letter-spacing:2px;color:var(--nhan);font-weight:500;margin:0 0 12px}
+  h2{font-size:36px}
+  h2 .cham-lua{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--anh-nen);box-shadow:0 0 0 6px rgba(232,163,61,.18);margin-right:12px;vertical-align:2px}
+  h2::after{content:"";display:block;width:48px;height:2px;background:var(--nhan);margin-top:16px}
+  .cot-chu{max-width:680px;margin:0 auto}
+  .anh-khung{position:relative}
+  .anh-khung img{aspect-ratio:16/9}
+  .nhan-anh{font-size:14px;color:var(--chu-phu);margin:8px 0 0}
+  .phan-cach{display:flex;align-items:center;gap:16px;justify-content:center}
+  .phan-cach::before,.phan-cach::after{content:"";height:1px;width:120px;background:var(--vien)}
+  .phan-cach .cham-lua{width:10px;height:10px;border-radius:50%;background:var(--anh-nen);box-shadow:0 0 0 6px rgba(232,163,61,.18)}
+  /* Hero full-bleed */
+  .hero{position:relative}
+  .hero img{aspect-ratio:16/9;min-height:420px}
+  .hero .lop-phu{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,12,6,.75) 0%,rgba(20,12,6,.4) 40%,rgba(20,12,6,.1) 100%)}
+  .hero .noi-dung{position:absolute;left:0;right:0;bottom:0;padding:0 48px 56px}
+  .hero h1{font-size:56px;color:var(--nen)}
+  .hero p{color:var(--nen);font-size:19px;max-width:640px}
+  .hero .nut{margin-top:8px;display:flex;gap:16px;flex-wrap:wrap}
+  .hero .btn-phu{color:var(--nen);border-color:var(--nen)}
+  .hero .nhan-anh{position:absolute;top:16px;right:20px;color:var(--nen);margin:0}
+  /* Câu chuyện */
+  .cau-chuyen .van-ban{margin-top:32px}
+  .timeline{margin:32px 0 0;padding:0;list-style:none;border-left:2px solid var(--vien)}
+  .timeline li{position:relative;padding:0 0 24px 32px}
+  .timeline li::before{content:"";position:absolute;left:-6px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--anh-nen);box-shadow:0 0 0 6px rgba(232,163,61,.18)}
+  .timeline h3{font-size:24px}
+  .timeline p{margin:4px 0 0;color:var(--chu-phu)}
+  /* Bộ sưu tập */
+  .mui{margin-top:96px}
+  .mui:first-of-type{margin-top:48px}
+  .mui .van-ban{margin-top:32px}
+  .mui h3{font-size:24px}
+  .not-huong{color:var(--chu-phu)}
+  .not-huong b{color:var(--nhan);font-weight:600}
+  /* Sản phẩm */
+  .luoi-sp{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px}
+  .the-sp{background:var(--nen-phu);border:1px solid var(--vien);border-radius:12px;overflow:hidden}
+  .the-sp img{aspect-ratio:1/1}
+  .the-sp .than{padding:20px 20px 24px}
+  .the-sp h3{font-size:24px}
+  .the-sp .gia{color:var(--nhan);font-weight:600;font-size:19px;margin:8px 0 16px}
+  .the-sp .gia small{color:var(--chu-phu);font-weight:400;font-size:14px}
+  /* Workshop */
+  .workshop{background:var(--nen-phu)}
+  .workshop .anh-khung{margin-bottom:32px}
+  .workshop ul{margin:16px 0}
+  .workshop .gia{color:var(--nhan);font-weight:600}
+  .workshop .gia small{color:var(--chu-phu);font-weight:400}
+  /* Form */
+  form{margin-top:48px}
+  .truong{margin-bottom:20px}
+  .truong label{display:block;font-weight:500;margin-bottom:6px}
+  .truong input,.truong select,.truong textarea{width:100%;padding:12px 14px;border:1px solid var(--vien);border-radius:8px;background:#fff;font:inherit;font-size:16px;color:var(--chu)}
+  .ghi-chu{font-size:14px;color:var(--chu-phu);margin-top:12px}
+  #thong-bao-mau{display:none;margin-top:20px;padding:16px;background:var(--nen-phu);border:1px solid var(--vien);border-radius:8px}
+  footer{background:var(--nen);border-top:1px solid var(--vien);padding:48px 0}
+  footer p{color:var(--chu-phu);margin:6px 0}
+  footer .ten{font-family:"Playfair Display",Georgia,serif;font-size:24px;color:var(--chu)}
+  @media (max-width:1023px){
+    .luoi-sp{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (max-width:767px){
+    body{font-size:16px}
+    .wrap{padding:0 24px}
+    section.block{padding:64px 0}
+    h2{font-size:28px}
+    h3,.timeline h3,.mui h3,.the-sp h3{font-size:20px}
+    nav.links{display:none}
+    .hero img{aspect-ratio:4/5}
+    .hero h1{font-size:36px}
+    .hero .noi-dung{padding:0 24px 40px}
+    .hero .nut .btn{width:100%;text-align:center}
+    .luoi-sp{grid-template-columns:1fr}
+    .mui{margin-top:64px}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#">Nến Đom Đóm</a>
+    <nav class="links" aria-label="Menu chính">
+      <a href="#cau-chuyen">Câu chuyện</a>
+      <a href="#bo-suu-tap">Bộ sưu tập</a>
+      <a href="#san-pham">Sản phẩm</a>
+      <a href="#workshop">Workshop</a>
+      <a href="#lien-he">Liên hệ</a>
+    </nav>
+    <a class="btn btn-chinh btn-nho" href="#lien-he">Đặt hàng</a>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="images/hero.jpg" alt="Một cây nến đang cháy trong căn phòng tối ấm, ngọn lửa rõ, sáp đang tan">
+  <div class="lop-phu"></div>
+  <p class="nhan-anh">(ảnh mẫu)</p>
+  <div class="noi-dung">
+    <div class="wrap" style="padding:0">
+      <h1>Nến Đom Đóm</h1>
+      <p>Thắp một đốm sáng nhỏ cho căn phòng của bạn</p>
+      <div class="nut">
+        <a class="btn btn-chinh" href="#bo-suu-tap">Khám phá bộ sưu tập</a>
+        <a class="btn btn-phu" href="#workshop">Workshop cuối tuần</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="cau-chuyen">
+  <div class="wrap">
+    <div class="cot-chu">
+      <p class="eyebrow">Câu chuyện</p>
+      <h2><span class="cham-lua"></span>Đổ từng mẻ nhỏ, thắp từng căn phòng</h2>
+    </div>
+    <div class="anh-khung" style="margin-top:32px">
+      <img src="images/cau-chuyen.jpg" alt="Bàn tay đang đổ sáp nến đang tan trong xưởng thủ công">
+      <p class="nhan-anh">(ảnh mẫu) — Bàn tay đổ nến, sáp đang tan.</p>
+    </div>
+    <div class="cot-chu van-ban cau-chuyen">
+      <p>Nến Đom Đóm bắt đầu từ một góc bếp nhỏ, nơi mỗi cây nến được làm bằng tay, chậm rãi và cẩn thận. Chúng tôi không đổ nến hàng loạt — mỗi mẻ chỉ vừa đủ cho vài căn phòng, để ngọn lửa nào cũng được chăm chút như nhau.</p>
+      <ol class="timeline">
+        <li><h3>Chọn sáp &amp; hương</h3><p>Chọn sáp sạch và tinh dầu gợi đúng buổi tối mà bạn muốn có.</p></li>
+        <li><h3>Đun chảy &amp; pha hương</h3><p>Sáp được đun chảy từ từ, hương pha vừa đủ để thơm nhẹ, không gắt.</p></li>
+        <li><h3>Đổ khuôn từng mẻ nhỏ</h3><p>Từng hũ nến được đổ tay, mỗi mẻ chỉ vài chục hũ.</p></li>
+        <li><h3>Để nguội &amp; hoàn thiện</h3><p>Nến để nguội tự nhiên rồi mới được cắt bấc, dán nhãn và đóng gói.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="phan-cach"><span class="cham-lua"></span></div></div>
+
+<section class="block" id="bo-suu-tap">
+  <div class="wrap">
+    <div class="cot-chu">
+      <p class="eyebrow">Bộ sưu tập</p>
+      <h2><span class="cham-lua"></span>Bốn mùi, bốn buổi tối</h2>
+      <p>Mỗi mùi là một buổi tối khác nhau. Chọn mùi hợp với tâm trạng của bạn hôm nay.</p>
+    </div>
+
+    <article class="mui">
+      <div class="anh-khung">
+        <img src="images/go-tram.jpg" alt="Nến đang cháy bên những thanh gỗ trầm">
+        <p class="nhan-anh">(ảnh mẫu)</p>
+      </div>
+      <div class="cot-chu van-ban">
+        <h3>Gỗ Trầm</h3>
+        <p>Buổi tối trầm lặng, ấm và sâu — mùi gỗ dành cho những lúc bạn chỉ muốn ngồi yên và đọc vài trang sách.</p>
+        <p class="not-huong"><b>Nốt hương:</b> gỗ, khói nhẹ, hổ phách</p>
+      </div>
+    </article>
+
+    <article class="mui">
+      <div class="anh-khung">
+        <img src="images/vani.jpg" alt="Nến đang cháy bên những quả vani">
+        <p class="nhan-anh">(ảnh mẫu)</p>
+      </div>
+      <div class="cot-chu van-ban">
+        <h3>Vani</h3>
+        <p>Ngọt ấm như một góc bếp vừa nướng bánh xong — mùi vani hợp với buổi tối quây quần, nhẹ nhàng.</p>
+        <p class="not-huong"><b>Nốt hương:</b> vani, kem, ngọt ấm</p>
+      </div>
+    </article>
+
+    <article class="mui">
+      <div class="anh-khung">
+        <img src="images/cam-que.jpg" alt="Nến đang cháy bên lát cam khô và quế">
+        <p class="nhan-anh">(ảnh mẫu)</p>
+      </div>
+      <div class="cot-chu van-ban">
+        <h3>Cam Quế</h3>
+        <p>Ấm nồng và vui vẻ — mùi cam quế dành cho buổi tối se lạnh, khi nhà cần thêm một chút rộn ràng.</p>
+        <p class="not-huong"><b>Nốt hương:</b> cam, quế, ấm nồng</p>
+      </div>
+    </article>
+
+    <article class="mui">
+      <div class="anh-khung">
+        <img src="images/oi-huong.jpg" alt="Nến đang cháy bên bó oải hương khô">
+        <p class="nhan-anh">(ảnh mẫu)</p>
+      </div>
+      <div class="cot-chu van-ban">
+        <h3>Oải Hương</h3>
+        <p>Thảo mộc dịu nhẹ, thư giãn — mùi oải hương dành cho buổi tối trước khi ngủ, khi mọi thứ chậm lại.</p>
+        <p class="not-huong"><b>Nốt hương:</b> oải hương, thảo mộc, thư giãn</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<div class="wrap"><div class="phan-cach"><span class="cham-lua"></span></div></div>
+
+<section class="block" id="san-pham">
+  <div class="wrap">
+    <div class="cot-chu">
+      <p class="eyebrow">Sản phẩm</p>
+      <h2><span class="cham-lua"></span>Được chọn nhiều nhất</h2>
+      <p>Ba hũ nến được chọn nhiều nhất — tất cả giá dưới đây đều là giá mẫu.</p>
+    </div>
+    <div class="luoi-sp">
+      <article class="the-sp">
+        <img src="images/go-tram.jpg" alt="Nến Gỗ Trầm đang cháy">
+        <div class="than">
+          <h3>Nến Gỗ Trầm</h3>
+          <p>Mùi gỗ trầm, khói nhẹ, hổ phách.</p>
+          <p class="gia">320.000đ <small>(giá mẫu)</small></p>
+          <p class="nhan-anh">(ảnh mẫu)</p>
+          <a class="btn btn-chinh btn-nho" href="#lien-he">Đặt hàng mẫu</a>
+        </div>
+      </article>
+      <article class="the-sp">
+        <img src="images/vani.jpg" alt="Nến Vani đang cháy">
+        <div class="than">
+          <h3>Nến Vani</h3>
+          <p>Mùi vani, kem, ngọt ấm.</p>
+          <p class="gia">280.000đ <small>(giá mẫu)</small></p>
+          <p class="nhan-anh">(ảnh mẫu)</p>
+          <a class="btn btn-chinh btn-nho" href="#lien-he">Đặt hàng mẫu</a>
+        </div>
+      </article>
+      <article class="the-sp">
+        <img src="images/cam-que.jpg" alt="Nến Cam Quế đang cháy">
+        <div class="than">
+          <h3>Nến Cam Quế</h3>
+          <p>Mùi cam, quế, ấm nồng.</p>
+          <p class="gia">300.000đ <small>(giá mẫu)</small></p>
+          <p class="nhan-anh">(ảnh mẫu)</p>
+          <a class="btn btn-chinh btn-nho" href="#lien-he">Đặt hàng mẫu</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block workshop" id="workshop">
+  <div class="wrap">
+    <div class="anh-khung">
+      <img src="images/workshop.jpg" alt="Bàn workshop với nhiều nến đang được đổ">
+      <p class="nhan-anh">(ảnh mẫu)</p>
+    </div>
+    <div class="cot-chu">
+      <p class="eyebrow">Workshop</p>
+      <h2><span class="cham-lua"></span>Workshop đổ nến cuối tuần</h2>
+      <p>Tự tay đổ một hũ nến của riêng bạn, mang về thắp trong căn phòng của mình.</p>
+      <ul>
+        <li>Lịch mẫu: Thứ 7 &amp; Chủ nhật, 9:00–11:30</li>
+        <li class="gia">Giá mẫu: 450.000đ/người <small>(giá mẫu)</small></li>
+        <li>Địa điểm: [CẦN BỔ SUNG]</li>
+      </ul>
+      <a class="btn btn-chinh" href="#lien-he">Giữ chỗ (giao diện mẫu)</a>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="lien-he">
+  <div class="wrap">
+    <div class="cot-chu">
+      <p class="eyebrow">Liên hệ</p>
+      <h2><span class="cham-lua"></span>Liên hệ / Đặt hàng</h2>
+      <p>Điền form dưới đây — form chỉ là giao diện mẫu, chưa gửi đơn thật.</p>
+      <form id="form-dat-hang">
+        <div class="truong">
+          <label for="ho-ten">Họ tên</label>
+          <input id="ho-ten" name="ho-ten" type="text" placeholder="Tên của bạn">
+        </div>
+        <div class="truong">
+          <label for="dien-thoai">Điện thoại</label>
+          <input id="dien-thoai" name="dien-thoai" type="tel" placeholder="Số điện thoại của bạn">
+        </div>
+        <div class="truong">
+          <label for="mui">Chọn mùi</label>
+          <select id="mui" name="mui">
+            <option>Gỗ Trầm</option>
+            <option>Vani</option>
+            <option>Cam Quế</option>
+            <option>Oải Hương</option>
+          </select>
+        </div>
+        <div class="truong">
+          <label for="so-luong">Số lượng</label>
+          <input id="so-luong" name="so-luong" type="number" min="1" value="1">
+        </div>
+        <div class="truong">
+          <label for="loi-nhan">Lời nhắn</label>
+          <textarea id="loi-nhan" name="loi-nhan" rows="4" placeholder="Nhắn gì thêm cho tiệm nhé"></textarea>
+        </div>
+        <button class="btn btn-chinh" type="submit">Gửi liên hệ</button>
+        <p class="ghi-chu">Form chỉ giao diện — chưa gửi đơn thật.</p>
+        <div id="thong-bao-mau" role="status">Cảm ơn bạn! Đây là bản giao diện mẫu.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="ten">Nến Đom Đóm</p>
+    <p>Địa chỉ: [CẦN BỔ SUNG]</p>
+    <p>Số điện thoại: [CẦN BỔ SUNG]</p>
+    <p>Giờ mở cửa: [CẦN BỔ SUNG]</p>
+    <p>Mạng xã hội: [CẦN BỔ SUNG]</p>
+    <p>Tất cả giá trên trang đều là giá mẫu; mọi thông tin thật đang chờ bổ sung.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('form-dat-hang').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('thong-bao-mau').style.display = 'block';
+});
+</script>
+</body>
+</html>
